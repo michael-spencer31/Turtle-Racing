@@ -7,6 +7,7 @@ screen.setup(width=500, height=400)
 user_bet = ""
 colours = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
 
+# loop until the user enters a valid colour
 while len(user_bet) == 0:
     user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Please enter a valid colour! ")
 
@@ -17,10 +18,13 @@ while len(user_bet) == 0:
 y_positions = [-70, -40, -10, 20, 50, 80,  110]
 all_turtles = []
 
+# loop through and create the turtles for the race
 for turtle_index in range(0, 7):
     new_turtle = Turtle(shape="turtle")
     new_turtle.color(colours[turtle_index])
+    # lift the turtles pen "up" so nothing is drawn on the screen
     new_turtle.penup()
+    # move the turtle to the left side of the screen to start the race
     new_turtle.goto(x=-230, y=y_positions[turtle_index])
     all_turtles.append(new_turtle)
 
